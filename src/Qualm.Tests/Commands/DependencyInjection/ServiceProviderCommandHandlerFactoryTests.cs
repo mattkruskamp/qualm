@@ -1,20 +1,18 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Qualm.Commands.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Qualm.Tests.Commands.DependencyInjection
 {
-    public class ServiceProviderHandlerFactoryTests
+    public class ServiceProviderCommandHandlerFactoryTests
     {
-        private ServiceProviderHandlerFactory BuildHandlerFactory()
+        private ServiceProviderCommandHandlerFactory BuildHandlerFactory()
         {
             var collection = new ServiceCollection();
             collection.AddScoped<TestCommandHandler>();
             var provider = collection.BuildServiceProvider();
-            return new ServiceProviderHandlerFactory(provider);
+            return new ServiceProviderCommandHandlerFactory(provider);
         }
         
         [Fact]

@@ -1,29 +1,29 @@
 ﻿using System;
 
-namespace Qualm.Commands.DependencyInjection
+namespace Qualm.Queries.DependencyInjection
 {
-    public class ServiceProviderHandlerFactory
-        : ICommandHandlerFactory
+    public class ServiceProviderQueryHandlerFactory
+        : IQueryHandlerFactory
     {
         private readonly IServiceProvider _provider;
 
-        public ServiceProviderHandlerFactory(
+        public ServiceProviderQueryHandlerFactory(
             IServiceProvider provider)
         {
             _provider = provider;
         }
 
-        public ICommandHandler Create(Type handlerType)
+        public IQueryHandler Create(Type handlerType)
         {
             if (handlerType == null)
                 throw new InvalidOperationException("handlerType cannot be null");
 
-            if (!typeof(ICommandHandler).IsAssignableFrom(handlerType))
+            if (!typeof(IQueryHandler).IsAssignableFrom(handlerType))
                 throw new InvalidOperationException(
-                    $"{handlerType.Name} must be an ICommandHandler");
+                    $"{handlerType.Name} must be an IQueryHandler");
 
             var service = _provider.GetService(handlerType);
-            return service as ICommandHandler;
+            return service as IQueryHandler;
         }
     }
 }

@@ -8,10 +8,10 @@ namespace Qualm.Commands.DependencyInjection
             this IServiceCollection services,
             ServiceLifetime lifetime = ServiceLifetime.Scoped)
         {
-            var registry = new ServiceCollectionHandlerRegistry(services, lifetime);
+            var registry = new ServiceCollectionCommandHandlerRegistry(services, lifetime);
 
             services.AddSingleton<ICommandHandlerRegistry>(m => registry);
-            services.AddScoped<ICommandHandlerFactory, ServiceProviderHandlerFactory>();
+            services.AddScoped<ICommandHandlerFactory, ServiceProviderCommandHandlerFactory>();
             services.AddScoped<ICommandProcessor, CommandProcessor>();
 
             return registry;

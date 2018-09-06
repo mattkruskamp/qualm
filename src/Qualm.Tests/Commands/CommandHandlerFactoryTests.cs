@@ -1,7 +1,5 @@
 ﻿using Qualm.Commands;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Qualm.Tests.Commands

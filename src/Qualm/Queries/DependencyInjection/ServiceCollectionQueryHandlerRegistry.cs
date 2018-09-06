@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace Qualm.Commands.DependencyInjection
+namespace Qualm.Queries.DependencyInjection
 {
-    public class ServiceCollectionHandlerRegistry : CommandHandlerRegistry
+    public class ServiceCollectionQueryHandlerRegistry : QueryHandlerRegistry
     {
         private readonly IServiceCollection _services;
         private readonly ServiceLifetime _lifetime;
 
-        public ServiceCollectionHandlerRegistry(
+        public ServiceCollectionQueryHandlerRegistry(
             IServiceCollection services,
             ServiceLifetime lifetime)
         {

@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Qualm.Commands;
 using Qualm.Commands.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Qualm.Tests.Commands.DependencyInjection

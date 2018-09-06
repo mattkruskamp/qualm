@@ -1,7 +1,5 @@
 ﻿using Qualm.Commands;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Qualm.Tests.Commands
@@ -21,7 +19,7 @@ namespace Qualm.Tests.Commands
             Assert.Throws<InvalidOperationException>(() =>
                 registry.RegisterHandler(null, typeof(TestCommandHandler)));
             Assert.Throws<InvalidOperationException>(() =>
-                registry.RegisterHandler(typeof(string), null));
+                registry.RegisterHandler(typeof(TestCommand), null));
         }
 
         [Fact]
