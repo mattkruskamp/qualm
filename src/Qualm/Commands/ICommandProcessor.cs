@@ -5,7 +5,7 @@ namespace Qualm.Commands
 {
     public interface ICommandProcessor
     {
-        Task ExecuteAsync(ICommand command,
+        Task ExecuteAsync(IRequest command,
             CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -2,8 +2,7 @@
 
 namespace Qualm.Commands
 {
-    public interface ICommand
+    public interface ICommand : IRequest
     {
-        Guid Id { get; }
     }
 }
