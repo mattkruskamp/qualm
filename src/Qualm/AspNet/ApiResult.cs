@@ -1,4 +1,4 @@
-﻿namespace Qualm.AspNetCore
+﻿namespace Qualm.AspNet
 {
     public class ApiResult
     {
