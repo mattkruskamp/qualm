@@ -8,6 +8,7 @@
     <PackageProjectUrl>https://github.com/Cyberkruz/qualm</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>CQRS;Command;Query;Queuing;Microservice</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
