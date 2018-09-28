@@ -1,7 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <Version>0.0.1</Version>
+    <Authors>Matt Kruskamp, Cory Hedges, Andrew Later</Authors>
+    <Description>Library for quickly implementing common microservice patterns in .Net Standard.</Description>
+    <PackageProjectUrl>https://github.com/Cyberkruz/qualm</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>CQRS;Command;Query;Queuing;Microservice</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
