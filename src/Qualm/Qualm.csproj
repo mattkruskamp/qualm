@@ -9,6 +9,9 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>CQRS;Command;Query;Queuing;Microservice</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseUrl>https://github.com/Cyberkruz/qualm/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/Cyberkruz/qualm</RepositoryUrl>
+    <Copyright>2018 Matt Kruskamp</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
