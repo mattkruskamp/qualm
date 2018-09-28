@@ -6,6 +6,8 @@ namespace Qualm.Queuing
 {
     public interface IQueueMessageMapper
     {
-        
+        IQueueMessage ToMessage(IRequest request);
+
+        IRequest ToReqeust(IQueueMessage message);
     }
 }

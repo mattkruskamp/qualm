@@ -6,6 +6,6 @@ namespace Qualm.Queuing
 {
     public interface IQueueMessage
     {
-        
+        string Name { get; }
     }
 }
