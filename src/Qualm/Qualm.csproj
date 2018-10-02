@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Title>Qualm</Title>
     <Authors>Matt Kruskamp, Cory Hedges, Andrew Later</Authors>
     <Description>Library for quickly implementing common microservice patterns in .Net Standard.</Description>

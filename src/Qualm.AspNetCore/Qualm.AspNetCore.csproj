@@ -2,12 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>0.0.1</Version>
-    <Authors>Matt Kruskamp, Cory Hedges, Andrew Later</Authors>
+    <Version>0.0.2</Version>
+    <Title>Qualm.AspNetCore</Title>
+    <Authors>Cory Hedges, Matt Kruskamp</Authors>
     <Description>Helpers for implementing microservices with Qualm and Asp.Net Core.</Description>
     <PackageProjectUrl>https://github.com/Cyberkruz/qualm</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>CQRS;Command;Query;Queuing;Microservice</PackageTags>
+    <PackageTags>CQRS;Command;Query;Queuing;Microservice;AspNet</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseUrl>https://github.com/Cyberkruz/qualm/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/Cyberkruz/qualm</RepositoryUrl>
+    <Copyright>2018 Matt Kruskamp</Copyright>
   </PropertyGroup>
 
 </Project>
