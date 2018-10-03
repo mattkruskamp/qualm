@@ -2,6 +2,11 @@
 {
     public class CommandResult : ApiResult
     {
+        public CommandResult(object data) : this(200, data)
+        {
+
+        }
+
         public CommandResult(int statusCode, object data) : base(statusCode)
         {
             Data = data;

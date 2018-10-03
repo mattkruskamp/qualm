@@ -2,6 +2,11 @@
 {
     public class QueryResult : ApiResult
     {
+        public QueryResult(object data) : this(200, data)
+        {
+
+        }
+
         public QueryResult(int statusCode, object data) : base(statusCode)
         {
             Data = data;
