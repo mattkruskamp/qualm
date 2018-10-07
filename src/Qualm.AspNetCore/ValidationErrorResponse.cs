@@ -13,10 +13,8 @@ namespace Qualm.AspNetCore
         }
 
         public ValidationErrorResponse(
-            string status, int statusCode,
-            string errorCode, string errorMessage,
             IEnumerable<ErrorResponse> errors) : 
-            base(status, statusCode, errorCode, errorMessage)
+            base(400, "validation_error", "There was an error validating the object.")
         {   
             Errors = errors;
         }

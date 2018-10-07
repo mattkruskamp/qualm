@@ -5,9 +5,9 @@
     /// </summary>
     public class QueryResponse : ApiResponse
     {
-        public QueryResponse(string status)
+        public QueryResponse()
         {
-            Status = status;
+            Status = "success";
             StatusCode = 200;
         }
     }

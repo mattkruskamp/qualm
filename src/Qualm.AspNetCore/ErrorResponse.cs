@@ -11,10 +11,10 @@
         }
 
         public ErrorResponse(
-            string status, int statusCode,
+            int statusCode,
             string errorCode, string errorMessage)
         {
-            Status = status;
+            Status = "error";
             StatusCode = statusCode;
             ErrorCode = errorCode;
             ErrorMessage = errorMessage;
