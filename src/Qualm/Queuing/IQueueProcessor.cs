@@ -8,7 +8,7 @@ namespace Qualm.Queuing
 {
     public interface IQueueProcessor
     {
-        Task EnQueueAsync(IRequest request,
+        Task EnqueueAsync(IRequest request,
             CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -4,10 +4,16 @@ using System.Text;
 
 namespace Qualm.Queuing
 {
-    public interface IQueueMessageMapper
-    {
-        IQueueMessage ToMessage(IRequest request);
+    public interface IQueueMessageMapper { }
 
-        IRequest ToReqeust(IQueueMessage message);
+    /// <summary>
+    /// Converts a request to a queue message.
+    /// </summary>
+    public interface IQueueMessageMapper<TRequest> : IQueueMessageMapper
+        where TRequest : class, IRequest
+    {
+        QueueMessage ToMessage(TRequest request);
+
+        TRequest ToRequest(QueueMessage message);
     }
 }
