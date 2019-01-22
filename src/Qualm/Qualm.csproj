@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <Version>0.0.7</Version>
+    <Version>0.0.8</Version>
     <Title>Qualm</Title>
     <Authors>Matt Kruskamp, Cory Hedges, Andrew Later</Authors>
     <Description>Library for quickly implementing common microservice patterns in .Net Standard.</Description>
@@ -12,7 +12,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseUrl>https://github.com/Cyberkruz/qualm/blob/master/LICENSE.txt</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Cyberkruz/qualm</RepositoryUrl>
-    <Copyright>2018 Matt Kruskamp</Copyright>
+    <Copyright>2018</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>0.0.7</Version>
+    <Version>0.0.8</Version>
     <Title>Qualm.AspNetCore</Title>
     <Authors>Cory Hedges, Matt Kruskamp</Authors>
     <Description>Helpers for implementing microservices with Qualm and Asp.Net Core.</Description>
@@ -12,7 +12,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseUrl>https://github.com/Cyberkruz/qualm/blob/master/LICENSE.txt</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Cyberkruz/qualm</RepositoryUrl>
-    <Copyright>2018 Matt Kruskamp</Copyright>
+    <Copyright>2018</Copyright>
   </PropertyGroup>
 
 </Project>

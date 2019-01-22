@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>0.0.7</Version>
+    <Version>0.0.8</Version>
     <Title>Qualm.AspNetCore.Swagger</Title>
     <Authors>Matt Kruskamp, Cory Hedges, Andrew Later</Authors>
     <Description>Library for implementing a more complete Swagger interface.</Description>
@@ -12,7 +12,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseUrl>https://github.com/Cyberkruz/qualm/blob/master/LICENSE.txt</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Cyberkruz/qualm</RepositoryUrl>
-    <Copyright>2018 Matt Kruskamp</Copyright>
+    <Copyright>2018</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
