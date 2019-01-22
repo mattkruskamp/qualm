@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,7 +20,7 @@ namespace Qualm.Queuing
             _clientFactory = clientFactory;
         }
 
-        public async Task EnqueueAsync(IRequest request, 
+        public async Task EnqueueAsync(IRequest request,
             CancellationToken cancellationToken = default(CancellationToken))
         {
             if (request == null)

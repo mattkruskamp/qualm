@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Reflection;
 
 namespace Qualm.Queuing
 {
@@ -8,11 +7,8 @@ namespace Qualm.Queuing
     {
         Type GetMapper(Type requestType);
 
-        void RegisterMapper(Type requestType, Type messageMapperType);
+        void RegisterMapper(Type requestType, Type mapperType);
 
-
-        // Could do something like:
-        // GetMapper(IRequest) where bleh bleh and
-        // GetMapper(QueueMessage) where bleh bleh bleh
+        void RegisterMappers(params Assembly[] assemblies);
     }
 }

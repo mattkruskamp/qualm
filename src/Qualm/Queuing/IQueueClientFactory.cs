@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Qualm.Queuing
+﻿namespace Qualm.Queuing
 {
     public interface IQueueClientFactory
     {
