@@ -83,7 +83,7 @@ namespace Qualm.Rmq
             {
                 var services = scope.ServiceProvider;
                 ICommandProcessor commandProcessor = services.GetRequiredService<ICommandProcessor>();
-                commandProcessor.ExecuteAsync(command);
+                commandProcessor.ExecuteAsync(command).GetAwaiter().GetResult();
             }
         }
     }
