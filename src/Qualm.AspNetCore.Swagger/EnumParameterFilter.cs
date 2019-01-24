@@ -1,5 +1,7 @@
-﻿using Swashbuckle.AspNetCore.Swagger;
+﻿using Qualm.AspNetCore.Swagger.Extensions;
+using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System;
 
 namespace Qualm.AspNetCore.Swagger
 {
@@ -9,8 +11,10 @@ namespace Qualm.AspNetCore.Swagger
         {
             var type = context.ApiParameterDescription.Type;
 
-            if (type.IsEnum)
-                parameter.Extensions.Add("x-ms-enum", new { name = type.Name, modelAsString = false });
+            if (type.IsEnum(out var enumName))
+                parameter.Extensions.Add("x-ms-enum", new { name = enumName ?? type.Name, modelAsString = false });
+
+
         }
     }
 }
