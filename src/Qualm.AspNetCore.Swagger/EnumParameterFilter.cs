@@ -13,8 +13,6 @@ namespace Qualm.AspNetCore.Swagger
 
             if (type.IsEnum(out var enumName))
                 parameter.Extensions.Add("x-ms-enum", new { name = enumName ?? type.Name, modelAsString = false });
-
-
         }
     }
 }
