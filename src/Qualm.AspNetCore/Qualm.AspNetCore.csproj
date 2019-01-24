@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>0.0.9</Version>
+    <Version>0.0.10</Version>
     <Title>Qualm.AspNetCore</Title>
     <Authors>Cory Hedges, Matt Kruskamp</Authors>
     <Description>Helpers for implementing microservices with Qualm and Asp.Net Core.</Description>

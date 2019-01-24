@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.0.9</Version>
+    <Version>0.0.10</Version>
     <Title>Qualm</Title>
     <Authors>Matt Kruskamp, Cory Hedges, Andrew Later</Authors>
     <Description>Implementation of Qualm messaging using RabbitMQ.</Description>
