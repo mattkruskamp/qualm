@@ -17,6 +17,7 @@ namespace Qualm.Rmq
         private readonly RmqConnectionDetails _connectionDetails;
         private readonly IQueueMessageMapperRegistry _registry;
         private readonly IQueueMessageMapperFactory _factory;
+        private readonly Dictionary<string, IModel> _commandChannels;
 
         public RmqDispatcher(
             IServiceProvider serviceProvider,
@@ -31,6 +32,7 @@ namespace Qualm.Rmq
             _connectionDetails = connectionDetails;
             _registry = registry;
             _factory = factory;
+            _commandChannels = new Dictionary<string, IModel>();
         }
 
         public void AddCommands(Dictionary<string, Type> commands)
@@ -43,8 +45,6 @@ namespace Qualm.Rmq
 
         public void Initialize()
         {
-            var channels = new List<IModel>();
-
             foreach (var command in _commands)
             {
                 var channel = _channelFactory.Create(command.Key);
@@ -55,9 +55,12 @@ namespace Qualm.Rmq
                 var consumer = new EventingBasicConsumer(channel);
                 consumer.Received += OnConsumerRecieved;
 
+                channel.BasicQos(0, 1, false);
                 channel.BasicConsume(queue: command.Key,
-                                 autoAck: true,
+                                 autoAck: false,
                                  consumer: consumer);
+
+                _commandChannels.Add(command.Key, channel);
             }
         }
 
@@ -85,6 +88,9 @@ namespace Qualm.Rmq
                 ICommandProcessor commandProcessor = services.GetRequiredService<ICommandProcessor>();
                 commandProcessor.ExecuteAsync(command).GetAwaiter().GetResult();
             }
+
+            var channel = _commandChannels[e.RoutingKey];
+            channel.BasicAck(e.DeliveryTag, false);
         }
     }
 }
