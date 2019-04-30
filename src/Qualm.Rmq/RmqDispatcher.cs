@@ -66,6 +66,7 @@ namespace Qualm.Rmq
 
         protected virtual void OnConsumerRecieved(object sender, BasicDeliverEventArgs e)
         {
+         
             var message = new QueueMessage
             {
                 Subject = e.RoutingKey,
@@ -73,6 +74,7 @@ namespace Qualm.Rmq
             };
 
             var type = _commands[message.Subject];
+            var channel = _commandChannels[e.RoutingKey];
 
             var mapperType = _registry.GetMapper(type);
             var mapper = _factory.Create(mapperType);
@@ -82,15 +84,29 @@ namespace Qualm.Rmq
 
             var command = (ICommand)function.Invoke(message);
 
-            using (IServiceScope scope = _serviceProvider.CreateScope())
+            try
             {
-                var services = scope.ServiceProvider;
-                ICommandProcessor commandProcessor = services.GetRequiredService<ICommandProcessor>();
-                commandProcessor.ExecuteAsync(command).GetAwaiter().GetResult();
-            }
+                using (IServiceScope scope = _serviceProvider.CreateScope())
+                {
+                    var services = scope.ServiceProvider;
+                    ICommandProcessor commandProcessor = services.GetRequiredService<ICommandProcessor>();
+                    commandProcessor.ExecuteAsync(command).GetAwaiter().GetResult();
+                }
 
-            var channel = _commandChannels[e.RoutingKey];
-            channel.BasicAck(e.DeliveryTag, false);
+                channel.BasicAck(e.DeliveryTag, false);
+            }
+            catch (Exception ex)
+            {
+                OnConsumerFailedEventArgs args = new OnConsumerFailedEventArgs();
+                args.DeliveryTag = e.DeliveryTag;
+                args.Channel = channel;
+                args.Command = command;
+                args.Error = ex;
+
+                OnConsumerFailed?.Invoke(this, args);
+            }
         }
+
+        public event EventHandler<OnConsumerFailedEventArgs> OnConsumerFailed;
     }
 }
