@@ -1,4 +1,4 @@
-﻿namespace Qualm.Rmq.DependancyInjection
+﻿namespace Qualm.Rmq
 {
     public class RmqQueueingOptions
     {

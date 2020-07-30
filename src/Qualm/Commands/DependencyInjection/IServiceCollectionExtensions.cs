@@ -16,5 +16,13 @@ namespace Qualm.Commands.DependencyInjection
 
             return registry;
         }
+
+        public static IServiceCollection AddRmq(
+            this IServiceCollection services,
+            ServiceLifetime lifetime = ServiceLifetime.Scoped)
+        {
+            
+            return services;            
+        }
     }
 }

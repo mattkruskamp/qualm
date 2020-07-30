@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Qualm.Queuing.DependancyInjection
+namespace Qualm.Queuing
 {
     public static class IServiceCollectionExtensions
     {

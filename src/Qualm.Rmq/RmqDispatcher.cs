@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Qualm.Commands;
 using Qualm.Queuing;
 using RabbitMQ.Client;
@@ -11,6 +12,7 @@ namespace Qualm.Rmq
 {
     public class RmqDispatcher
     {
+        private readonly ILogger<RmqDispatcher> _logger;
         private readonly IServiceProvider _serviceProvider;
         private readonly Dictionary<string, Type> _commands;
         private readonly RmqChannelFactory _channelFactory;
@@ -24,7 +26,8 @@ namespace Qualm.Rmq
             RmqConnectionDetails connectionDetails,
             RmqChannelFactory channelFactory,
             IQueueMessageMapperRegistry registry,
-            IQueueMessageMapperFactory factory)
+            IQueueMessageMapperFactory factory,
+            ILogger<RmqDispatcher> logger)
         {
             _serviceProvider = serviceProvider;
             _commands = new Dictionary<string, Type>();
@@ -33,6 +36,7 @@ namespace Qualm.Rmq
             _registry = registry;
             _factory = factory;
             _commandChannels = new Dictionary<string, IModel>();
+            _logger = logger;
         }
 
         public void AddCommands(Dictionary<string, Type> commands)
@@ -86,11 +90,16 @@ namespace Qualm.Rmq
 
             try
             {
-                using (IServiceScope scope = _serviceProvider.CreateScope())
+                using (var scope = _serviceProvider.CreateScope())
                 {
                     var services = scope.ServiceProvider;
-                    ICommandProcessor commandProcessor = services.GetRequiredService<ICommandProcessor>();
+                    var commandProcessor = services.GetRequiredService<ICommandProcessor>();
+
+                    _logger.LogTrace($"{nameof(commandProcessor): cmd.Id}");
+
                     commandProcessor.ExecuteAsync(command).GetAwaiter().GetResult();
+
+                    _logger.LogTrace($"{nameof(commandProcessor): cmd.Id finished.}");
                 }
 
                 channel.BasicAck(e.DeliveryTag, false);

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Qualm.Queuing;
 
-namespace Qualm.Rmq.DependancyInjection
+namespace Qualm.Rmq
 {
     public static class IServiceCollectionExtensions
     {
