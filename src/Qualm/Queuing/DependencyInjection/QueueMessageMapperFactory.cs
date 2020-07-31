@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Qualm.Queuing.DependancyInjection
+namespace Qualm.Queuing
 {
     public class QueueMessageMapperFactory : IQueueMessageMapperFactory
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Qualm.Queuing.DependancyInjection
+namespace Qualm.Queuing
 {
     public class QueueMessageMapperRegistry : IQueueMessageMapperRegistry
     {
