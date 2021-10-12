@@ -13,6 +13,14 @@
     <PackageLicenseUrl>https://github.com/Cyberkruz/qualm/blob/master/LICENSE.txt</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Cyberkruz/qualm</RepositoryUrl>
     <Copyright>2018</Copyright>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
 
 </Project>
