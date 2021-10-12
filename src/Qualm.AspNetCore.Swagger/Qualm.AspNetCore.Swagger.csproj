@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Compile Remove="AllOfDocumentFilter.cs" />
-    <Compile Remove="AllOfSchemaFilter.cs" />
   </ItemGroup>
 
   <ItemGroup>

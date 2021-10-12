@@ -1,14 +1,17 @@
 ﻿using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace Qualm.AspNetCore.Swagger
 {
+    /// <summary>
+    /// Custom schema filter that includes types in an inheritance chain from
+    /// external assemblies.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AllOfSchemaFilter<T> : ISchemaFilter
     {
         private readonly Type _type;
@@ -20,26 +23,26 @@ namespace Qualm.AspNetCore.Swagger
             _types = new Lazy<IDictionary<Type, Type>>(MapTypes);
         }
 
-        public void Apply(Schema schema, SchemaFilterContext context)
+        public void Apply(OpenApiSchema schema, SchemaFilterContext context)
         {
-            if (!_types.Value.ContainsKey(context.SystemType))
+            if (!_types.Value.ContainsKey(context.Type))
                 return;
 
-            var clonedSchema = new Schema
+            var clonedSchema = new OpenApiSchema
             {
                 Properties = schema.Properties,
                 Required = schema.Required,
                 Type = schema.Type
             };
 
-            var baseType = _types.Value[context.SystemType];
+            var baseType = _types.Value[context.Type];
 
-            var parentSchema = new Schema
+            var parentSchema = new OpenApiSchema
             {
-                Ref = $"#/definitions/{baseType.Name}"
+                Reference = new OpenApiReference() { ExternalResource = $"#/definitions/{baseType.Name}" }
             };
 
-            schema.AllOf = new List<Schema>
+            schema.AllOf = new List<OpenApiSchema>
             {
                 parentSchema,
                 clonedSchema
