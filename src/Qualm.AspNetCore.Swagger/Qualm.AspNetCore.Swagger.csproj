@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>0.0.10</Version>
+    <Version>0.0.11</Version>
     <Title>Qualm.AspNetCore.Swagger</Title>
     <Authors>Matt Kruskamp, Cory Hedges, Andrew Later</Authors>
     <Description>Library for implementing a more complete Swagger interface.</Description>
@@ -14,10 +14,6 @@
     <RepositoryUrl>https://github.com/Cyberkruz/qualm</RepositoryUrl>
     <Copyright>2018</Copyright>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="AllOfDocumentFilter.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.2" />

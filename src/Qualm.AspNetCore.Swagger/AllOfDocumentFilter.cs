@@ -1,4 +1,5 @@
-﻿using Swashbuckle.AspNetCore.Swagger;
+﻿using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
@@ -16,17 +17,19 @@ namespace Qualm.AspNetCore.Swagger
             _type = typeof(T);
         }
 
-        public void Apply(SwaggerDocument swaggerDoc, DocumentFilterContext context)
+        public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
-            RegisterType(context.SchemaRegistry, _type);
+            RegisterType(context, _type);
         }
 
-        private void RegisterType(ISchemaRegistry schemaRegistry, Type t)
+        private void RegisterType(DocumentFilterContext context, Type t)
         {
             var baseType = t.BaseType;
 
-            if (baseType == null)
+            if (baseType == null) 
+            {
                 return;
+            }
 
             var assemblies = new List<Assembly>()
             {
@@ -54,9 +57,11 @@ namespace Qualm.AspNetCore.Swagger
             }
 
             foreach (var dt in derivedTypes)
-                schemaRegistry.GetOrRegister(dt);
+            {
+                context.SchemaGenerator.GenerateSchema(dt, context.SchemaRepository);
+            }
 
-            RegisterType(schemaRegistry, baseType);
+            RegisterType(context, baseType);
         }
     }
 }
