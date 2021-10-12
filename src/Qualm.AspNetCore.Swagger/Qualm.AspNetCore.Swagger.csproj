@@ -16,9 +16,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="4.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="4.0.1" />
+    <Compile Remove="AllOfDocumentFilter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.2" />
   </ItemGroup>
 
 </Project>
