@@ -1,19 +1,22 @@
-﻿using Qualm.AspNetCore.Swagger.Extensions;
-using Swashbuckle.AspNetCore.Swagger;
+﻿using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System;
+using System.Linq;
 
 namespace Qualm.AspNetCore.Swagger
 {
     public class EnumSchemaFilter : ISchemaFilter
     {
-        public void Apply(Schema model, SchemaFilterContext context)
+        public void Apply(OpenApiSchema schema, SchemaFilterContext context)
         {
-            if (context.SystemType.IsEnum(out var enumName))
-                model.Extensions.Add("x-ms-enum", new
-                {
-                    name = enumName ?? context.SystemType.Name,
-                    modelAsString = false
-                });
+            if (context.Type.IsEnum)
+            {
+                schema.Enum.Clear();
+                Enum.GetNames(context.Type)
+                    .ToList()
+                    .ForEach(n => schema.Enum.Add(new OpenApiString(n)));
+            }
         }
     }
 }
