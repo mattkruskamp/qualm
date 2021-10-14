@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <Version>0.0.11</Version>
+    <Version>0.0.13</Version>
     <Title>Qualm</Title>
     <Authors>Matt Kruskamp, Cory Hedges, Andrew Later</Authors>
     <Description>Library for quickly implementing common microservice patterns in .Net Standard.</Description>
@@ -10,9 +10,9 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>CQRS;Command;Query;Queuing;Microservice</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseUrl>https://github.com/Cyberkruz/qualm/blob/master/LICENSE.txt</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Cyberkruz/qualm</RepositoryUrl>
     <Copyright>2018</Copyright>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,5 +24,12 @@
 
   <ItemGroup Condition="'$(TargetFramework)'=='net452'">
     <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 </Project>

@@ -3,16 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Version>0.0.13</Version>
-    <Title>Qualm</Title>
+    <Title>Qualm.Rmq</Title>
     <Authors>Matt Kruskamp, Cory Hedges, Andrew Later</Authors>
     <Description>Implementation of Qualm messaging using RabbitMQ.</Description>
     <PackageProjectUrl>https://github.com/Cyberkruz/qualm</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>CQRS;Command;Query;Queuing;Microservice;RabbitMq</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseUrl>https://github.com/Cyberkruz/qualm/blob/master/LICENSE.txt</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Cyberkruz/qualm</RepositoryUrl>
     <Copyright>2019</Copyright>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +25,13 @@
 
   <ItemGroup Condition="'$(TargetFramework)'=='net452'">
     <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
