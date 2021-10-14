@@ -37,15 +37,21 @@ namespace Qualm.AspNetCore.Swagger
 
             var baseType = _types.Value[context.Type];
 
+            // updated from /definitions to /components/schemas to support
+            // open api 3 spec
             var parentSchema = new OpenApiSchema
             {
-                Reference = new OpenApiReference() { ExternalResource = $"#/definitions/{baseType.Name}" }
+                Reference = new OpenApiReference()
+                {
+                    ExternalResource = $"#/components/schemas/{baseType.Name}"
+                }
             };
 
+            // should only include parent schema so we don't also include
+            // child properties
             schema.AllOf = new List<OpenApiSchema>
             {
-                parentSchema,
-                clonedSchema
+                parentSchema
             };
 
             // gets base class property names

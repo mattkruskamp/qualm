@@ -20,6 +20,16 @@ namespace Qualm.AspNetCore.Swagger
         public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
             RegisterType(context, _type);
+
+            // fixes a problem with autorest 6.0.6282 cannot parse
+            // additionalProperties: false
+            var schemas = context.SchemaRepository.Schemas
+                .Where(schema => schema.Value.AdditionalProperties == null);
+            
+            foreach (var schema in schemas)
+            {
+                schema.Value.AdditionalPropertiesAllowed = true;
+            }
         }
 
         private void RegisterType(DocumentFilterContext context, Type t)
