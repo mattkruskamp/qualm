@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.0.13</Version>
+    <Version>1.0.2</Version>
     <Title>Qualm.Rmq</Title>
-    <Authors>Matt Kruskamp, Cory Hedges, Andrew Later</Authors>
+    <Authors>Matt Kruskamp, Cory Hedges, Andrew Later, Chris Tanaka</Authors>
     <Description>Implementation of Qualm messaging using RabbitMQ.</Description>
     <PackageProjectUrl>https://github.com/Cyberkruz/qualm</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
