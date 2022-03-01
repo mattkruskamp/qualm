@@ -18,6 +18,8 @@ namespace Qualm.AspNetCore.Swagger
                 {
                     parameter.Style = ParameterStyle.Form;
                 }
+
+                parameter.Explode = true;
             }
         }
     }
