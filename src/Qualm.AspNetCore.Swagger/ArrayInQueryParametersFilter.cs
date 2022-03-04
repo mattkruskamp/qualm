@@ -1,6 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Linq;
 
 namespace Qualm.AspNetCore.Swagger
 {
@@ -8,18 +7,19 @@ namespace Qualm.AspNetCore.Swagger
     /// The workaround for openapi3/autorest query parameters serialization
     /// See more: https://github.com/Azure/autorest/issues/3373, https://swagger.io/specification/
     /// </summary>
-    public class ArrayInQueryParametersFilter : IOperationFilter
+    public class ArrayInQueryParametersFilter : IParameterFilter
     {
-        public void Apply(OpenApiOperation operation, OperationFilterContext context)
+        public void Apply(OpenApiParameter parameter, ParameterFilterContext context)
         {
-            foreach (var parameter in operation.Parameters.Where(x => (x.In == ParameterLocation.Query && x.Schema.Type == "array")))
+            if (parameter.In.HasValue && parameter.In.Value == ParameterLocation.Query)
             {
-                if (!parameter.Style.HasValue)
+                if (parameter.Schema?.Type == "array")
                 {
-                    parameter.Style = ParameterStyle.Form;
-                }
 
-                parameter.Explode = true;
+                    parameter.Style = ParameterStyle.Form;
+                    parameter.Explode = true;
+                    parameter.Extensions.Add("explode", new ExplodeExtension());
+                }
             }
         }
     }
