@@ -5,7 +5,7 @@ namespace Qualm.Commands
 {
     public interface ICommandHandlerRegistry
     {
-        Type GetHandler(Type commandType);
+        Type? GetHandler(Type commandType);
 
         void RegisterHandler(Type commandType, Type commandHandlerType);
 

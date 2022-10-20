@@ -6,9 +6,9 @@ namespace Qualm.Queuing
 {
     public class QueueProcessor : IQueueProcessor
     {
-        private readonly IQueueClientFactory _clientFactory;
-        private readonly IQueueMessageMapperRegistry _mapperRegistry;
-        private readonly IQueueMessageMapperFactory _mapperFactory;
+        readonly IQueueClientFactory _clientFactory;
+        readonly IQueueMessageMapperRegistry _mapperRegistry;
+        readonly IQueueMessageMapperFactory _mapperFactory;
 
         public QueueProcessor(
             IQueueMessageMapperRegistry mapperRegistry,
@@ -26,7 +26,7 @@ namespace Qualm.Queuing
             if (request == null)
                 throw new InvalidOperationException($"Request cannot be null");
 
-            var mapperType = _mapperRegistry.GetMapper(request.GetType());
+            var mapperType = _mapperRegistry.GetMapper(request.GetType())!;
             var mapper = _mapperFactory.Create(mapperType);
 
             var function = new Func<IRequest, QueueMessage>(

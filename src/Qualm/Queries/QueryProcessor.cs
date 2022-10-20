@@ -8,8 +8,8 @@ namespace Qualm.Queries
 {
     public class QueryProcessor : IQueryProcessor
     {
-        private readonly IQueryHandlerRegistry _registry;
-        private readonly IQueryHandlerFactory _factory;
+        readonly IQueryHandlerRegistry _registry;
+        readonly IQueryHandlerFactory _factory;
 
         public QueryProcessor(
             IQueryHandlerRegistry registry,
@@ -36,7 +36,7 @@ namespace Qualm.Queries
         private IQueryHandler GetHandler<TResult>(IQuery<TResult> query)
         {
             var queryType = query.GetType();
-            var handlerType = _registry.GetHandler(queryType);
+            var handlerType = _registry.GetHandler(queryType)!;
             var handler = _factory.Create(handlerType);
 
             return handler;

@@ -8,8 +8,8 @@ namespace Qualm.Queuing
 {
     public class QueueMessageMapperRegistry : IQueueMessageMapperRegistry
     {
-        private readonly IServiceCollection _services;
-        private readonly Dictionary<Type, Type> _types;
+        readonly IServiceCollection _services;
+        readonly Dictionary<Type, Type> _types;
 
         public QueueMessageMapperRegistry(
             IServiceCollection services)
@@ -18,10 +18,8 @@ namespace Qualm.Queuing
             _types = new Dictionary<Type, Type>();
         }
 
-        public virtual Type GetMapper(Type requestType)
-        {
-            return _types.ContainsKey(requestType) ? _types[requestType] : null;
-        }
+        public virtual Type? GetMapper(Type requestType) =>
+            _types.ContainsKey(requestType) ? _types[requestType] : null;
 
         public virtual void RegisterMapper(Type requestType, Type mapperType)
         {

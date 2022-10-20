@@ -8,17 +8,13 @@ namespace Qualm.Queries
 {
     public class QueryHandlerRegistry : IQueryHandlerRegistry
     {
-        private readonly Dictionary<Type, Type> _types;
+        readonly Dictionary<Type, Type> _types;
 
-        public QueryHandlerRegistry()
-        {
+        public QueryHandlerRegistry() =>
             _types = new Dictionary<Type, Type>();
-        }
 
-        public virtual Type GetHandler(Type queryType)
-        {
-            return _types.ContainsKey(queryType) ? _types[queryType] : null;
-        }
+        public virtual Type? GetHandler(Type queryType) =>
+            _types!.ContainsKey(queryType) ? _types[queryType] : null;
 
         public virtual void RegisterHandler(Type queryType, Type queryHandlerType)
         {

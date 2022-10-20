@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Version>1.0.5</Version>
     <Title>Qualm.AspNetCore.Swagger</Title>
     <Authors>Matt Kruskamp, Cory Hedges, Andrew Later, Chris Tanaka</Authors>
@@ -16,15 +16,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\LICENSE.txt">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <PackagePath/>
     </None>
   </ItemGroup>
 

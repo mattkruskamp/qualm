@@ -5,7 +5,7 @@ namespace Qualm.Queries
 {
     public interface IQueryHandlerRegistry
     {
-        Type GetHandler(Type queryType);
+        Type? GetHandler(Type queryType);
 
         void RegisterHandler(Type queryType, Type queryHandlerType);
 

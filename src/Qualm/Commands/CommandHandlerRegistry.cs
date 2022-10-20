@@ -7,17 +7,13 @@ namespace Qualm.Commands
 {
     public class CommandHandlerRegistry : ICommandHandlerRegistry
     {
-        private readonly Dictionary<Type, Type> _types;
+        readonly Dictionary<Type, Type> _types;
 
-        public CommandHandlerRegistry()
-        {
+        public CommandHandlerRegistry() =>
             _types = new Dictionary<Type, Type>();
-        }
 
-        public virtual Type GetHandler(Type commandType)
-        {
-            return _types.ContainsKey(commandType) ? _types[commandType] : null;
-        }
+        public virtual Type? GetHandler(Type commandType) => 
+            _types!.ContainsKey(commandType) ? _types[commandType] : null;
 
         public virtual void RegisterHandler(Type commandType, Type commandHandlerType)
         {

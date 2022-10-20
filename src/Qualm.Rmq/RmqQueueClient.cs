@@ -8,8 +8,8 @@ namespace Qualm.Rmq
 {
     public class RmqQueueClient : IQueueClient
     {
-        private readonly RmqChannelFactory _channels;
-        private readonly RmqConnectionDetails _details;
+        readonly RmqChannelFactory _channels;
+        readonly RmqConnectionDetails _details;
 
         public RmqQueueClient(
             RmqChannelFactory channels,

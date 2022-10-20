@@ -12,14 +12,14 @@ namespace Qualm.Rmq
 {
     public class RmqDispatcher
     {
-        private readonly ILogger<RmqDispatcher> _logger;
-        private readonly IServiceProvider _serviceProvider;
-        private readonly Dictionary<string, Type> _commands;
-        private readonly RmqChannelFactory _channelFactory;
-        private readonly RmqConnectionDetails _connectionDetails;
-        private readonly IQueueMessageMapperRegistry _registry;
-        private readonly IQueueMessageMapperFactory _factory;
-        private readonly Dictionary<string, IModel> _commandChannels;
+        readonly ILogger<RmqDispatcher> _logger;
+        readonly IServiceProvider _serviceProvider;
+        readonly Dictionary<string, Type> _commands;
+        readonly RmqChannelFactory _channelFactory;
+        readonly RmqConnectionDetails _connectionDetails;
+        readonly IQueueMessageMapperRegistry _registry;
+        readonly IQueueMessageMapperFactory _factory;
+        readonly Dictionary<string, IModel> _commandChannels;
 
         public RmqDispatcher(
             IServiceProvider serviceProvider,
@@ -74,7 +74,7 @@ namespace Qualm.Rmq
             var message = new QueueMessage
             {
                 Subject = e.RoutingKey,
-                Body = Encoding.UTF8.GetString(e.Body)
+                Body = Encoding.UTF8.GetString(e.Body.Span)
             };
 
             var type = _commands[message.Subject];
