@@ -19,7 +19,7 @@ namespace Qualm.Queuing.Json
         public TRequest ToRequest(QueueMessage message)
         {
             var result = JsonConvert.DeserializeObject(
-                message.Body, typeof(TRequest));
+                message.Body!, typeof(TRequest));
             return (result as TRequest)!;
         }
 
