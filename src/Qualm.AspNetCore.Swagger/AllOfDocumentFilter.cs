@@ -10,7 +10,7 @@ namespace Qualm.AspNetCore.Swagger
 {
     public class AllOfDocumentFilter<T> : IDocumentFilter
     {
-        private readonly Type _type;
+        readonly Type _type;
 
         public AllOfDocumentFilter()
         {

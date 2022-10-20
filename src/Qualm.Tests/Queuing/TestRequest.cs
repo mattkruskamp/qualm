@@ -6,16 +6,14 @@ namespace Qualm.Tests.Queuing
 {
     public class TestRequest : IRequest
     {
-        private readonly Guid _id;
+        readonly Guid _id;
 
-        public TestRequest()
-        {
+        public TestRequest() =>
             _id = Guid.NewGuid();
-        }
 
         public Guid Id
         {
-            get { return _id; }
+            get => _id;
         }
     }
 }

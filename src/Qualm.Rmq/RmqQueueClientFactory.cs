@@ -5,7 +5,7 @@ namespace Qualm.Rmq
 {
     public class RmqQueueClientFactory : IQueueClientFactory
     {
-        private readonly IServiceProvider _provider;
+        readonly IServiceProvider _provider;
 
         public RmqQueueClientFactory(
             IServiceProvider provider)

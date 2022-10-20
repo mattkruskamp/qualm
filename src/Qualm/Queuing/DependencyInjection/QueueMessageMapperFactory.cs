@@ -4,7 +4,7 @@ namespace Qualm.Queuing
 {
     public class QueueMessageMapperFactory : IQueueMessageMapperFactory
     {
-        private readonly IServiceProvider _provider;
+        readonly IServiceProvider _provider;
 
         public QueueMessageMapperFactory(
             IServiceProvider serviceProvider)
@@ -22,7 +22,7 @@ namespace Qualm.Queuing
                     $"{mapperType.Name} must be an IQueueMessageMapper");
 
             var service = _provider.GetService(mapperType);
-            return service as IQueueMessageMapper;
+            return (service as IQueueMessageMapper)!;
         }
     }
 }

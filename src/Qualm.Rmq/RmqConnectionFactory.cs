@@ -5,7 +5,7 @@ namespace Qualm.Rmq
 {
     public class RmqConnectionFactory
     {
-        private readonly RmqConnectionDetails _settings;
+        readonly RmqConnectionDetails _settings;
         private IConnection connection;
 
         public RmqConnectionFactory(RmqConnectionDetails settings)

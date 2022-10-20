@@ -5,8 +5,8 @@ namespace Qualm.Queries.DependencyInjection
 {
     public class ServiceCollectionQueryHandlerRegistry : QueryHandlerRegistry
     {
-        private readonly IServiceCollection _services;
-        private readonly ServiceLifetime _lifetime;
+        readonly IServiceCollection _services;
+        readonly ServiceLifetime _lifetime;
 
         public ServiceCollectionQueryHandlerRegistry(
             IServiceCollection services,

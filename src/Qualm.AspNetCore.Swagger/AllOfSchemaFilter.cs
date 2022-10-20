@@ -14,8 +14,8 @@ namespace Qualm.AspNetCore.Swagger
     /// <typeparam name="T"></typeparam>
     public class AllOfSchemaFilter<T> : ISchemaFilter
     {
-        private readonly Type _type;
-        private readonly Lazy<IDictionary<Type, Type>> _types;
+        readonly Type _type;
+        readonly Lazy<IDictionary<Type, Type>> _types;
 
         public AllOfSchemaFilter()
         {

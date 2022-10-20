@@ -5,7 +5,7 @@ namespace Qualm.Queries.DependencyInjection
     public class ServiceProviderQueryHandlerFactory
         : IQueryHandlerFactory
     {
-        private readonly IServiceProvider _provider;
+        readonly IServiceProvider _provider;
 
         public ServiceProviderQueryHandlerFactory(
             IServiceProvider provider)
@@ -23,7 +23,7 @@ namespace Qualm.Queries.DependencyInjection
                     $"{handlerType.Name} must be an IQueryHandler");
 
             var service = _provider.GetService(handlerType);
-            return service as IQueryHandler;
+            return (service as IQueryHandler)!;
         }
     }
 }
