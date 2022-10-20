@@ -5,7 +5,7 @@ namespace Qualm.Queuing
 {
     public interface IQueueMessageMapperRegistry
     {
-        Type GetMapper(Type requestType);
+        Type? GetMapper(Type requestType);
 
         void RegisterMapper(Type requestType, Type mapperType);
 

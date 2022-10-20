@@ -20,7 +20,7 @@ namespace Qualm.Queuing.Json
         {
             var result = JsonConvert.DeserializeObject(
                 message.Body, typeof(TRequest));
-            return result as TRequest;
+            return (result as TRequest)!;
         }
 
         public abstract string Subject { get; }

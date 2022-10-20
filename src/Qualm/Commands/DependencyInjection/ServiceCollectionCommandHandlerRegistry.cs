@@ -5,8 +5,8 @@ namespace Qualm.Commands.DependencyInjection
 {
     public class ServiceCollectionCommandHandlerRegistry : CommandHandlerRegistry
     {
-        private readonly IServiceCollection _services;
-        private readonly ServiceLifetime _lifetime;
+        readonly IServiceCollection _services;
+        readonly ServiceLifetime _lifetime;
 
         public ServiceCollectionCommandHandlerRegistry(
             IServiceCollection services,

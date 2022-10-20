@@ -6,8 +6,8 @@ namespace Qualm.Commands
 {
     public class CommandProcessor : ICommandProcessor
     {
-        private readonly ICommandHandlerRegistry _registry;
-        private readonly ICommandHandlerFactory _factory;
+        readonly ICommandHandlerRegistry _registry;
+        readonly ICommandHandlerFactory _factory;
 
         public CommandProcessor(
             ICommandHandlerRegistry registry,
@@ -34,7 +34,7 @@ namespace Qualm.Commands
         private ICommandHandler GetHandler(ICommand command)
         {
             var type = command.GetType();
-            var handlerType = _registry.GetHandler(type);
+            var handlerType = _registry.GetHandler(type)!;
             var handler = _factory.Create(handlerType);
 
             return handler;

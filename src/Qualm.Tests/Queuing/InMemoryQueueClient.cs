@@ -9,22 +9,18 @@ namespace Qualm.Tests.Queuing
 {
     public class InMemoryQueueClient : IQueueClient
     {
-        private readonly Queue<QueueMessage> _queue;
+        readonly Queue<QueueMessage> _queue;
 
-        public InMemoryQueueClient()
-        {
+        public InMemoryQueueClient() =>
             _queue = new Queue<QueueMessage>();
-        }
 
         public async Task SendAsync(QueueMessage message, 
-            CancellationToken cancellationToken = default(CancellationToken))
-        {
+            CancellationToken cancellationToken = default(CancellationToken)) =>
             await Task.Run(() => _queue.Enqueue(message));
-        }
 
         public Queue<QueueMessage> Queue
         {
-            get { return _queue; }
+            get => _queue;
         }
     }
 }

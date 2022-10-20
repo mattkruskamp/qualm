@@ -11,8 +11,8 @@ namespace Qualm.Rmq.Tests
 {
   public class DispatcherTests
   {
-    private readonly ILogger _logger;
-    private readonly ITestOutputHelper _output;
+    readonly ILogger _logger;
+    readonly ITestOutputHelper _output;
 
     public DispatcherTests(ITestOutputHelper output)
     {

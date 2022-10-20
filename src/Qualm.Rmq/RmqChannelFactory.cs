@@ -5,9 +5,9 @@ namespace Qualm.Rmq
 {
     public class RmqChannelFactory
     {
-        private readonly RmqConnectionFactory _mananger;
-        private readonly IList<string> _initializedQueues;
-        private readonly RmqConnectionDetails _connectionDetails;
+        readonly RmqConnectionFactory _mananger;
+        readonly IList<string> _initializedQueues;
+        readonly RmqConnectionDetails _connectionDetails;
         private IModel _channel;
 
         public RmqChannelFactory(

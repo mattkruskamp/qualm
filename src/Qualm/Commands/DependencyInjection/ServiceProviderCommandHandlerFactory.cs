@@ -5,7 +5,7 @@ namespace Qualm.Commands.DependencyInjection
     public class ServiceProviderCommandHandlerFactory
         : ICommandHandlerFactory
     {
-        private readonly IServiceProvider _provider;
+        readonly IServiceProvider _provider;
 
         public ServiceProviderCommandHandlerFactory(
             IServiceProvider provider)
@@ -23,7 +23,7 @@ namespace Qualm.Commands.DependencyInjection
                     $"{handlerType.Name} must be an ICommandHandler");
 
             var service = _provider.GetService(handlerType);
-            return service as ICommandHandler;
+            return (service as ICommandHandler)!;
         }
     }
 }
