@@ -74,7 +74,7 @@ namespace Qualm.Rmq
             var message = new QueueMessage
             {
                 Subject = e.RoutingKey,
-                Body = Encoding.UTF8.GetString(e.Body)
+                Body = Encoding.UTF8.GetString(e.Body.ToArray())
             };
 
             var type = _commands[message.Subject];
