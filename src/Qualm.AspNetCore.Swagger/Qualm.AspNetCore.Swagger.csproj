@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <Title>Qualm.AspNetCore.Swagger</Title>
     <Authors>Matt Kruskamp, Cory Hedges, Andrew Later, Chris Tanaka</Authors>
     <Description>Library for implementing a more complete Swagger interface.</Description>
